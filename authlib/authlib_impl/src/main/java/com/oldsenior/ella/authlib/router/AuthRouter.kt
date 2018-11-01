@@ -5,7 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.support.v4.app.Fragment
 import com.oldsenior.ella.authlib.AuthRouter
-import com.oldsenior.ella.authlib.LoginActivity
+import com.oldsenior.ella.authlib.view.LoginActivity
 import com.oldsenior.ella.corelib.di.injector.AppInjector
 import com.oldsenior.ella.corelib.di.injector.Injector
 import com.oldsenior.ella.corelib.router.FlowResult

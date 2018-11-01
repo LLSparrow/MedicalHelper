@@ -1,4 +1,4 @@
-package com.oldsenior.ella.corelib.viewmodel
+package com.oldsenior.ella.corelib.view.viewmodel
 
 import android.arch.lifecycle.*
 import android.support.v4.app.Fragment

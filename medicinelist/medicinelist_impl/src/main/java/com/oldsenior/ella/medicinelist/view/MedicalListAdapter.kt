@@ -5,7 +5,7 @@
 //import android.view.LayoutInflater
 //import android.view.ViewGroup
 //import com.oldsenior.ella.corelib.io.AppExecutors
-//import com.oldsenior.ella.corelib.recycler.DataBoundListAdapter
+//import com.oldsenior.ella.corelib.view.recycler.DataBoundListAdapter
 //import com.oldsenior.ella.medicallistlib.R
 //import com.oldsenior.ella.medicallistlib.databinding.MedicalItemBinding
 //import com.oldsenior.ella.medicinelist.model.Medication

@@ -2,7 +2,7 @@ package com.oldsenior.ella.medicinelist.di
 
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
-import com.oldsenior.ella.corelib.viewmodel.ViewModelKey
+import com.oldsenior.ella.corelib.view.viewmodel.ViewModelKey
 import com.oldsenior.ella.medicinelist.view.MedicalListViewModel
 import com.oldsenior.ella.medicinelist.view.viewmodel.MedicalListViewModelFactory
 import dagger.Binds

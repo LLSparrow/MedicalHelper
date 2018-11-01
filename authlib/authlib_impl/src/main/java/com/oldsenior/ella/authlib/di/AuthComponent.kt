@@ -1,6 +1,6 @@
 package com.oldsenior.ella.medicinelist.di
 
-import com.oldsenior.ella.authlib.LoginActivity
+import com.oldsenior.ella.authlib.view.LoginActivity
 import com.oldsenior.ella.corelib.di.component.BaseComponent
 import dagger.Component
 import javax.inject.Scope

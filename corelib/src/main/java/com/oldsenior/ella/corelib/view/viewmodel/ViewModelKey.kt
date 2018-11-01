@@ -1,4 +1,4 @@
-package com.oldsenior.ella.corelib.viewmodel
+package com.oldsenior.ella.corelib.view.viewmodel
 
 import android.arch.lifecycle.ViewModel
 import dagger.MapKey

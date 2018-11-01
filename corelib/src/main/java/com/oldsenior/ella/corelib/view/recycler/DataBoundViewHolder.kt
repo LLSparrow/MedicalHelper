@@ -1,4 +1,4 @@
-package com.oldsenior.ella.corelib.recycler
+package com.oldsenior.ella.corelib.view.recycler
 
 import android.databinding.ViewDataBinding
 import android.support.v7.widget.RecyclerView

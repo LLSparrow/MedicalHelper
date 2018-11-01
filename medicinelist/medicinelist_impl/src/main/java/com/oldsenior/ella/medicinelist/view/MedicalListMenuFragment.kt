@@ -1,16 +1,13 @@
 package com.oldsenior.ella.medicinelist.view
 
-import android.databinding.DataBindingUtil
 import android.os.Bundle
-import android.renderscript.ScriptGroup
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.oldsenior.ella.corelib.util.autoCleared
 import com.oldsenior.ella.corelib.view.BaseFragment
-import com.oldsenior.ella.corelib.viewmodel.observe
-import com.oldsenior.ella.corelib.viewmodel.withViewModel
-import com.oldsenior.ella.medicinelist_impl.R
+import com.oldsenior.ella.corelib.view.viewmodel.observe
+import com.oldsenior.ella.corelib.view.viewmodel.withViewModel
 
 class MedicalListMenuFragment : BaseFragment() {
 
