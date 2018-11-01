@@ -1,0 +1,9 @@
+include ':app',
+        ':authlib',
+        ':authlib:authlib_api',
+        ':authlib:authlib_impl',
+        ':corelib',
+        ':assistent',
+        ':medicinelist',
+        ':medicinelist:medicinelist_api',
+        ':medicinelist:medicinelist_impl'

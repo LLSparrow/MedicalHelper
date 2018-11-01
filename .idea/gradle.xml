@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/assistent" />
+            <option value="$PROJECT_DIR$/authlib" />
+            <option value="$PROJECT_DIR$/authlib/authlib_api" />
+            <option value="$PROJECT_DIR$/authlib/authlib_impl" />
+            <option value="$PROJECT_DIR$/corelib" />
+            <option value="$PROJECT_DIR$/medicinelist" />
+            <option value="$PROJECT_DIR$/medicinelist/medicinelist_api" />
+            <option value="$PROJECT_DIR$/medicinelist/medicinelist_impl" />
+          </set>
+        </option>
+        <option name="resolveModulePerSourceSet" value="false" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

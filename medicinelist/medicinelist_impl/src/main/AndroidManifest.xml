@@ -1,0 +1,7 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.oldsenior.ella.medicinelist_impl">
+
+    <application>
+        <activity android:name="com.oldsenior.ella.medicinelist.view.MedicalListMenuActivity"/>
+    </application>
+</manifest>
