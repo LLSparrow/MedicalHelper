@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">core_net_api</string>
+    <string name="unexpected_error">Unexpected error</string>
+</resources>

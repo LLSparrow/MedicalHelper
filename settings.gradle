@@ -1,9 +1,7 @@
-include ':app',
-        ':authlib',
-        ':authlib:authlib_api',
-        ':authlib:authlib_impl',
-        ':corelib',
+include ':app', ':core_ui', ':main_menu', ':core_net_api', ':core_utils', ':core_net_impl', ':core_base_api',
+        ':authlib_api',
+        ':authlib_impl',
+        ':core_base_impl',
         ':assistent',
-        ':medicinelist',
-        ':medicinelist:medicinelist_api',
-        ':medicinelist:medicinelist_impl'
+        ':medicinelist_api',
+        ':medicinelist_impl'

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MedicalHelper</string>
+    <string name="bank_list_search_hint">Search</string>
 </resources>

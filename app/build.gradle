@@ -1,16 +1,18 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion versions.compileSdk
+
     defaultConfig {
         applicationId "com.oldsenior.ella.medicalhelper"
-        minSdkVersion 21
-        targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+        versionCode versions.versionCode
+        versionName versions.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
@@ -18,14 +20,27 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    android {
+        packagingOptions {
+            exclude("META-INF/*.kotlin_module")
+            exclude("**.kotlin_builtins")
+            exclude("**.kotlin_metadata")
+        }
+    }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation core.kotlin
+    //UI
+    implementation ui.appcompat
+    implementation ui.material
+    implementation ui.constraintLayout
+    implementation ui.lifecycle
+    implementation ui.recyclerview
 
-    implementation project(':corelib')
-    implementation project(':authlib')
-    implementation project(':medicinelist')
+    implementation common.logger
+
+    implementation project(':core_utils')
+    implementation project(':core_ui')
 }

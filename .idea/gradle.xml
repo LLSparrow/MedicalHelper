@@ -10,13 +10,17 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/assistent" />
-            <option value="$PROJECT_DIR$/authlib" />
-            <option value="$PROJECT_DIR$/authlib/authlib_api" />
-            <option value="$PROJECT_DIR$/authlib/authlib_impl" />
-            <option value="$PROJECT_DIR$/corelib" />
-            <option value="$PROJECT_DIR$/medicinelist" />
-            <option value="$PROJECT_DIR$/medicinelist/medicinelist_api" />
-            <option value="$PROJECT_DIR$/medicinelist/medicinelist_impl" />
+            <option value="$PROJECT_DIR$/authlib_api" />
+            <option value="$PROJECT_DIR$/authlib_impl" />
+            <option value="$PROJECT_DIR$/core_base_api" />
+            <option value="$PROJECT_DIR$/core_base_impl" />
+            <option value="$PROJECT_DIR$/core_net_api" />
+            <option value="$PROJECT_DIR$/core_net_impl" />
+            <option value="$PROJECT_DIR$/core_ui" />
+            <option value="$PROJECT_DIR$/core_utils" />
+            <option value="$PROJECT_DIR$/main_menu" />
+            <option value="$PROJECT_DIR$/medicinelist_api" />
+            <option value="$PROJECT_DIR$/medicinelist_impl" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

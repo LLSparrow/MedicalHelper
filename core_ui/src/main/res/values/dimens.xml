@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Margins & Padding, 8 dp baseline, https://material.io/guidelines/layout/metrics-keylines.html#metrics-keylines-baseline-grids -->
+    <dimen name="margin_padding_size_4">4dp</dimen>
+    <dimen name="margin_padding_size_8">8dp</dimen>
+    <dimen name="margin_padding_size_12">12dp</dimen>
+    <dimen name="margin_padding_size_16">16dp</dimen>
+    <dimen name="margin_padding_size_24">24dp</dimen>
+    <dimen name="margin_padding_size_32">32dp</dimen>
+    <dimen name="margin_padding_size_56">56dp</dimen>
+    <dimen name="margin_padding_size_72">72dp</dimen>
+    <dimen name="margin_padding_size_80">80dp</dimen>
+
+    <!-- Launcher Icon Size, https://developer.android.com/guide/practices/ui_guidelines/icon_design_launcher.html#size -->
+    <dimen name="launcher_icon_size">@dimen/standard_touch_size</dimen>
+
+    <!-- Touch Target Size, https://material.io/guidelines/layout/metrics-keylines.html#metrics-keylines-touch-target-size-->
+    <dimen name="standard_touch_size">48dp</dimen>
+
+    <!-- Toolbar, 4 dp baseline, https://material.io/guidelines/layout/metrics-keylines.html#metrics-keylines-baseline-grids -->
+    <dimen name="toolbar_margin_size">4dp</dimen>
+    <dimen name="toolbar_icon_size">24dp</dimen>
+
+    <!-- Font sizes, https://material.io/guidelines/style/typography.html#typography-typeface -->
+    <dimen name="text_size_12">12sp</dimen>
+    <dimen name="text_size_14">14sp</dimen>
+    <dimen name="text_size_16">16sp</dimen>
+    <dimen name="text_size_20">20sp</dimen>
+    <dimen name="text_size_28">28sp</dimen>
+
+    <dimen name="round_corner_radius">20dp</dimen>
+</resources>

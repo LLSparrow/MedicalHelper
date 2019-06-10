@@ -1,0 +1,51 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion versions.compileSdk
+
+    defaultConfig {
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+        versionCode versions.versionCode
+        versionName versions.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = versions.compatibility
+        targetCompatibility = versions.compatibility
+    }
+
+}
+
+dependencies {
+    implementation project(':core_base_api')
+    implementation core.kotlin
+
+    implementation ui.lifecycle
+    kapt ui.lifecycleCompiler
+
+    // dagger
+    implementation dagger.core
+    kapt dagger.compiler
+
+    implementation common.logger
+
+    // RxJava
+    implementation rxjava.core
+    implementation rxjava.android
+    implementation rxjava.lifecycle
+
+    // Room
+    implementation room.core
+}
