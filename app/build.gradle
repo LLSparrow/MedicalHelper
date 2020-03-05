@@ -1,46 +1,105 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+
+apply from: '../scripts/release_signing.gradle'
+apply from: "../scripts/versions.gradle"
 
 android {
+    testBuildType "debug"
     compileSdkVersion versions.compileSdk
 
     defaultConfig {
-        applicationId "com.oldsenior.ella.medicalhelper"
+        applicationId "com.luckylittlesparrow.healthassistant"
         minSdkVersion versions.minSdk
         targetSdkVersion versions.targetSdk
         versionCode versions.versionCode
         versionName versions.versionName
-
+        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-    buildTypes {
+
+    signingConfigs {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            def props = getSigningProperties()
+            storeFile = file(props["storeFile"])
+            storePassword props["storePassword"]
+            keyAlias props["keyAlias"]
+            keyPassword props["keyPassword"]
         }
+        debug {
+            storeFile file("../key/healthassistant_debug.keystore")
+            storePassword 'android'
+            keyAlias 'healthassistantdebugkey'
+            keyPassword 'android'
+        }
+
     }
 
-    android {
-        packagingOptions {
-            exclude("META-INF/*.kotlin_module")
-            exclude("**.kotlin_builtins")
-            exclude("**.kotlin_metadata")
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
+
+        debug {
+            applicationIdSuffix '.debug'
+            versionNameSuffix '-debug'
+            signingConfig signingConfigs.debug
+
+        }
+//        fabric {
+//            initWith debug
+//            versionNameSuffix '-fabric'
+//            matchingFallbacks = ['debug']
+//            signingConfig signingConfigs.debug
+//        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/INDEX.LIST'
+        exclude 'META-INF/io.netty.versions.properties'
+        exclude 'META-INF/*.kotlin_module'
+    }
+
+    dataBinding {
+        enabled = true
+    }
+    kotlinOptions {
+        jvmTarget = versions.compatibility
+    }
+
+    androidExtensions {
+        experimental = true
     }
 }
 
 dependencies {
-    implementation core.kotlin
-    //UI
-    implementation ui.appcompat
-    implementation ui.material
-    implementation ui.constraintLayout
-    implementation ui.lifecycle
-    implementation ui.recyclerview
+    implementation core.multidex
 
-    implementation common.logger
+    implementation koin.core
+    implementation koin.ext
+
+    implementation lifecycle.core
+
+    implementation firebase.auth
+    implementation firebase.analytics
 
     implementation project(':core_utils')
     implementation project(':core_ui')
+    implementation project(':core_base_api')
+    implementation project(':core_base_impl')
+    implementation project(':feature_main_api')
+    implementation project(':feature_main_impl')
+    implementation project(':authlib_api')
+    implementation project(':authlib_impl')
+    implementation project(':feature_medicine_list_api')
+    implementation project(':feature_medicine_list_impl')
+
+   // debugImplementation core.leakcanary
 }
+
+apply plugin: 'com.google.gms.google-services'

@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="false" />
+        <option name="testRunner" value="PLATFORM" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
@@ -18,9 +21,11 @@
             <option value="$PROJECT_DIR$/core_net_impl" />
             <option value="$PROJECT_DIR$/core_ui" />
             <option value="$PROJECT_DIR$/core_utils" />
-            <option value="$PROJECT_DIR$/main_menu" />
-            <option value="$PROJECT_DIR$/medicinelist_api" />
-            <option value="$PROJECT_DIR$/medicinelist_impl" />
+            <option value="$PROJECT_DIR$/feature_account_api" />
+            <option value="$PROJECT_DIR$/feature_main_api" />
+            <option value="$PROJECT_DIR$/feature_main_impl" />
+            <option value="$PROJECT_DIR$/feature_medicine_list_api" />
+            <option value="$PROJECT_DIR$/feature_medicine_list_impl" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

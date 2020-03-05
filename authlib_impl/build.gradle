@@ -2,24 +2,21 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
+apply from: '../scripts/release_signing.gradle'
 
 android {
     compileSdkVersion versions.compileSdk
 
     defaultConfig {
+        def props = getSigningProperties()
         minSdkVersion versions.minSdk
         targetSdkVersion versions.targetSdk
         versionCode versions.versionCode
         versionName versions.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-    }
 
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
+        buildConfigField "String", "GOOGLE_CLIENT_ID", props["GOOGLE_CLIENT_ID"]
     }
 
     compileOptions {
@@ -30,17 +27,29 @@ android {
     dataBinding {
         enabled = true
     }
+    kotlinOptions {
+        jvmTarget = versions.compatibility
+    }
+
+    androidExtensions {
+        experimental = true
+    }
 }
 
 
 dependencies {
     implementation project(':authlib_api')
     implementation project(':core_base_impl')
+    implementation project(':core_base_api')
+    implementation project(':core_net_api')
+    implementation project(':core_ui')
+    implementation project(':core_utils')
+    implementation project(':feature_account_api')
 
-    implementation core.kotlin
-    implementation ui.appcompat
 
-    // dagger
-    implementation dagger.core
-    kapt dagger.compiler
+    implementation firebase.auth
+
+    implementation gms.auth
+
+   // debugImplementation core.leakcanary
 }

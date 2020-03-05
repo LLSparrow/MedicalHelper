@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion versions.compileSdk
@@ -14,25 +15,29 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-
     compileOptions {
         sourceCompatibility = versions.compatibility
         targetCompatibility = versions.compatibility
+    }
+
+    kotlinOptions {
+        jvmTarget = versions.compatibility
+    }
+
+    androidExtensions {
+        experimental = true
     }
 
 }
 
 dependencies {
     implementation project(':core_utils')
-    implementation project(':core_ui')
     implementation project(':core_base_impl')
 
     implementation core.kotlin
     implementation rest.gson
+
+    implementation ui.appcompat
+
+    implementation firebase.auth
 }

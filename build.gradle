@@ -2,13 +2,9 @@ apply plugin: "com.github.ben-manes.versions"
 
 buildscript {
 
-    dependencies {
-        classpath "com.github.ben-manes:gradle-versions-plugin:0.21.0"
-    }
-
     ext.versions = [
-            compileSdk            : 28,
-            targetSdk             : 28,
+            compileSdk            : 29,
+            targetSdk             : 29,
             minSdk                : 21,
             versionCode           : 1,
             versionName           : '1.1.0',
@@ -18,18 +14,18 @@ buildscript {
             googleServices        : '4.2.0',
             fabric                : '1.29.0',
 
-            supportLibrary        : '1.1.0-alpha05',
+            supportLibrary        : '1.1.0',
             annotation            : '1.1.0-beta01',
             legacySupport         : '1.0.0',
-            kotlin                : '1.3.31',
+            kotlin                : '1.3.50',
             moxy                  : '1.5.6',
-            dagger                : '2.23',
+            dagger                : '2.25.2',
             jsr250                : '1.0',
-            lifecycle             : '2.0.0',
+            lifecycle             : '2.1.0',
             multidex              : '1.0.3',
 
             material              : '1.0.0',
-            constraintLayout      : '2.0.0-beta1',
+            constraintLayout      : '2.0.0-beta3',
             recycler              : '1.0.0',
             recyclerScrollDecor   : '1.0.4',
             lottie                : '3.0.3',
@@ -40,16 +36,17 @@ buildscript {
             rxAndroid             : '2.1.1',
             rxContacts            : '1.2.0',
 
-            retrofit              : '2.5.0',
+            retrofit              : '2.6.2',
             cicerone              : '5.0.0',
-            gson                  : '2.8.5',
-            room                  : '2.1.0-beta01',
+            gson                  : '2.8.6',
+            room                  : '2.2.1',
             picasso               : '2.71828',
             crashlytics           : '2.10.1',
-            okhttp3               : '3.14.2',
+            okhttp3               : '4.2.2',
 
             mockito               : '2.28.2',
             mockitoKotlin         : '2.1.0',
+            mockk                 : '1.9.3',
             junit                 : '4.12',
             testRunner            : '1.2.0',
             espressoCore          : '3.2.0',
@@ -58,6 +55,8 @@ buildscript {
             firebaseMessaging     : '18.0.0',
             firebaseCore          : '16.0.9',
             firebaseConfig        : '17.0.0',
+            firebaseAuth          : '19.1.0',
+            firebaseAnalytics     : '17.2.0',
 
             pinLockView           : '031698d7d1',
             logger                : '2.2.0',
@@ -65,36 +64,64 @@ buildscript {
             libphonenumber        : '8.10.11',
 
             slidinguppanel        : '3.4.0',
-            findbugs              : '3.0.2'
+            findbugs              : '3.0.2',
+            koin                  : '2.0.1',
+            navigation            : '2.1.0',
+            coroutines            : '1.3.2',
+            ktx                   : '1.1.0',
+            workManagerKtx        : '2.2.0',
+            gmsAuth               : '17.0.0',
+            fragment              : '1.2.0-alpha02',
+            glide                 : '4.10.0',
+            leakcanary            : "2.0-beta-3"
 
     ]
 
     ext.core = [
             kotlin          : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$versions.kotlin",
             kotlinExtensions: "org.jetbrains.kotlin:kotlin-android-extensions-runtime:$versions.kotlin",
+            ktx             : "androidx.core:core-ktx:$versions.ktx",
             annotation      : "androidx.annotation:annotation:$versions.annotation",
             multidex        : "com.android.support:multidex:$versions.multidex",
             crashlytics     : "com.crashlytics.sdk.android:crashlytics:$versions.crashlytics@aar",
-            capital         : "com.github.soramitsu:capital_android:$versions.capital"
+            leakcanary      : 'com.squareup.leakcanary:leakcanary-android:2.0-beta-3'
     ]
 
     ext.ui = [
-            appcompat             : "androidx.appcompat:appcompat:$versions.supportLibrary",
-            material              : "com.google.android.material:material:$versions.material",
-            recyclerview          : "androidx.recyclerview:recyclerview:$versions.recycler",
-            constraintLayout      : "androidx.constraintlayout:constraintlayout:$versions.constraintLayout",
-            lottie                : "com.airbnb.android:lottie:$versions.lottie",
-            picasso               : "com.squareup.picasso:picasso:$versions.picasso",
-            picassoTransformations: "jp.wasabeef:picasso-transformations:$versions.picassoTransformations",
-            lifecycle             : "androidx.lifecycle:lifecycle-extensions:$versions.lifecycle",
-            lifecycleCompiler     : "androidx.lifecycle:lifecycle-compiler:$versions.lifecycle",
-            spinnerDatePicker     : "com.github.drawers:SpinnerDatePicker:$versions.spinnerDatePicker",
-            pinLockView           : "com.github.dmitriyTarasov:PinLockView:$versions.pinLockView",
-            androidtoggleswitch   : "com.llollox:androidtoggleswitch:$versions.androidtoggleswitch",
-            slidinguppanel        : "com.sothree.slidinguppanel:library:$versions.slidinguppanel",
-            flexbox               : "com.google.android:flexbox:$versions.flexbox",
-            biometric             : "androidx.biometric:biometric:$versions.biometric",
-            recyclerScrollDecor   : "me.everything:overscroll-decor-android:$versions.recyclerScrollDecor"
+            appcompat        : "androidx.appcompat:appcompat:$versions.supportLibrary",
+            material         : "com.google.android.material:material:$versions.material",
+            recyclerview     : "androidx.recyclerview:recyclerview:$versions.recycler",
+            constraintLayout : "androidx.constraintlayout:constraintlayout:$versions.constraintLayout",
+            lottie           : "com.airbnb.android:lottie:$versions.lottie",
+
+            spinnerDatePicker: "com.github.drawers:SpinnerDatePicker:$versions.spinnerDatePicker",
+            slidinguppanel   : "com.sothree.slidinguppanel:library:$versions.slidinguppanel",
+            flexbox          : "com.google.android:flexbox:$versions.flexbox"
+    ]
+
+    ext.glide = [
+            core    : "com.github.bumptech.glide:glide:$versions.glide",
+            compiler: "com.github.bumptech.glide:compiler:$versions.glide"
+    ]
+
+    ext.gms = [
+            auth: "com.google.android.gms:play-services-auth:$versions.gmsAuth"
+    ]
+
+    ext.lifecycle = [
+            core        : "androidx.lifecycle:lifecycle-extensions:$versions.lifecycle",
+            compiler    : "androidx.lifecycle:lifecycle-compiler:$versions.lifecycle",
+            viewmodelktx: "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycle"
+    ]
+
+    ext.workmanager = [
+            ktx: "androidx.work:work-runtime-ktx:$versions.workManagerKtx"
+    ]
+
+    ext.navigation = [
+            core   : "androidx.navigation:navigation-fragment-ktx:$versions.navigation",
+            ui     : "androidx.navigation:navigation-ui-ktx:$versions.navigation",
+            runtime: "androidx.navigation:navigation-runtime-ktx:$versions.navigation"
     ]
 
     ext.common = [
@@ -107,10 +134,9 @@ buildscript {
             findbugs            : "com.google.code.findbugs:jsr305:$versions.findbugs"
     ]
 
-    ext.moxy = [
-            core     : "com.arello-mobile:moxy:$versions.moxy",
-            appCompat: "com.arello-mobile:moxy-app-compat:$versions.moxy",
-            compiler : "com.arello-mobile:moxy-compiler:$versions.moxy"
+    ext.coroutines = [
+            core   : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutines",
+            android: "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutines"
     ]
 
     ext.dagger = [
@@ -120,11 +146,23 @@ buildscript {
             legacySupport: "androidx.legacy:legacy-support-v4:$versions.legacySupport"
     ]
 
+    ext.koin = [
+            core     : "org.koin:koin-android:$versions.koin",
+            scope    : "org.koin:koin-androidx-scope:$versions.koin",
+            viewmodel: "org.koin:koin-androidx-viewmodel:$versions.koin",
+            ext      : "org.koin:koin-androidx-ext:$versions.koin"
+    ]
+
     ext.rxjava = [
             core     : "io.reactivex.rxjava2:rxjava:$versions.rxJava",
             android  : "io.reactivex.rxjava2:rxandroid:$versions.rxAndroid",
             contacts : "com.github.mirrajabi:rx-contacts2:$versions.rxContacts",
             lifecycle: "androidx.lifecycle:lifecycle-reactivestreams:$versions.lifecycle"
+    ]
+
+    ext.navigation = [
+            core: "androidx.navigation:navigation-fragment-ktx:$versions.navigation",
+            ui  : "androidx.navigation:navigation-ui-ktx:$versions.navigation"
     ]
 
     ext.room = [
@@ -134,6 +172,8 @@ buildscript {
     ]
 
     ext.firebase = [
+            analytics: "com.google.firebase:firebase-analytics:$versions.firebaseAnalytics",
+            auth     : "com.google.firebase:firebase-auth:$versions.firebaseAuth",
             core     : "com.google.firebase:firebase-core:$versions.firebaseCore",
             config   : "com.google.firebase:firebase-config:$versions.firebaseConfig",
             messaging: "com.google.firebase:firebase-messaging:$versions.firebaseMessaging",
@@ -151,25 +191,27 @@ buildscript {
     ext.test = [
             mockito      : "org.mockito:mockito-core:$versions.mockito",
             mockitoKotlin: "com.nhaarman.mockitokotlin2:mockito-kotlin:$versions.mockitoKotlin",
+            mockk        : "io.mockk:mockk:$versions.mockk",
             junit        : "junit:junit:$versions.junit",
             testRunner   : "androidx.test:runner:$versions.testRunner",
             espressoCore : "androidx.test.espresso:espresso-core:$versions.espressoCore",
             room         : "androidx.room:room-testing:$versions.room",
-            archCore     : "android.arch.core:core-testing:$versions.archCore"
+            archCore     : "android.arch.core:core-testing:$versions.archCore",
+            koin         : "org.koin:koin-test:$versions.koin"
     ]
 
-    ext.kotlin_version = '1.3.31'
-    ext.kotlin_version = '1.2.71'
+    ext.kotlin_version = '1.3.50'
+
     repositories {
         google()
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.1'
+        classpath 'com.android.tools.build:gradle:3.6.0-rc03'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.google.gms:google-services:4.3.2'
+        classpath "com.github.ben-manes:gradle-versions-plugin:0.25.0"
 
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
     }
 }
 

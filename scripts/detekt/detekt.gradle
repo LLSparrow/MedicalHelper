@@ -1,0 +1,17 @@
+apply plugin: 'org.jlleitschuh.gradle.ktlint'
+apply plugin: 'io.gitlab.arturbosch.detekt'
+
+detekt {
+    toolVersion = "1.0.0-RC16"
+    parallel = true
+    input = files("src/main/java")
+    config = files("$rootDir/scripts/detekt/detekt-config.yml")
+    filters = ".*/res/.*,.*/resources/.*,.*/build/.*,.*/libs/.*"
+    reports {
+        xml.destination = file("build/reports/detekt-report.xml")
+    }
+}
+
+dependencies {
+    detektPlugins "io.gitlab.arturbosch.detekt:detekt-formatting:$versions.detekt"
+}

@@ -1,0 +1,12 @@
+def computeVersionName() {
+    return "$MAJOR_VERSION.$MINOR_VERSION.$PATCH_VERSION"
+}
+
+def computeVersionCode() {
+    return Integer.valueOf(System.env.BUILD_NUMBER ?: 20)
+}
+
+ext {
+    computeVersionName = this.&computeVersionName
+    computeVersionCode = this.&computeVersionCode
+}

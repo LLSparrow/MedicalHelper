@@ -14,13 +14,6 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-
     compileOptions {
         sourceCompatibility = versions.compatibility
         targetCompatibility = versions.compatibility
@@ -30,5 +23,8 @@ android {
 
 dependencies {
     implementation core.kotlin
+    implementation core.ktx
     implementation ui.appcompat
+    implementation navigation.values()
+
 }

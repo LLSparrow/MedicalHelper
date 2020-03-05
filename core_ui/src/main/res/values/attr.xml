@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--colors-->
+    <attr name="colorTertiary" format="reference"/>
+    <attr name="colorBackground" format="reference"/>
+    <attr name="colorBody" format="reference"/>
+    <attr name="colorHeader" format="reference"/>
+    <attr name="colorInformation" format="reference"/>
+    <attr name="colorShadowBorder" format="reference"/>
+    <attr name="colorElementBackground" format="reference"/>
+    <attr name="colorThinBorder" format="reference"/>
+    <attr name="colorThickBorder" format="reference"/>
+    <!--colors-->
+
+    <!--margins-->
+    <attr name="marginPaddingTitle" format="reference"/>
+
+    <attr name="marginPaddingBySide" format="reference"/>
+    <attr name="marginPaddingDescription" format="reference"/>
+    <attr name="marginPaddingListElement" format="reference"/>
+    <attr name="marginPaddingContent" format="reference"/>
+    <attr name="marginPaddingContentBySide" format="reference"/>
+    <attr name="marginPaddingRightLeft" format="reference"/>
+    <!--margins-->
+
+    <!--fonts-->
+    <attr name="fontSemiBold" format="reference"/>
+    <attr name="fontBold" format="reference"/>
+    <attr name="fontExtraBold" format="reference"/>
+    <attr name="fontRegular" format="reference"/>
+    <!--fonts-->
+
+    <!--text sizes-->
+    <attr name="textSizeB2" format="reference"/>
+    <attr name="textSizeB1" format="reference"/>
+    <attr name="textSizeH4" format="reference"/>
+    <attr name="textSizeH3" format="reference"/>
+    <attr name="textSizeH2" format="reference"/>
+    <attr name="textSizeH1" format="reference"/>
+    <!--text sizes-->
+
+    <attr name="roundCornerRadius" format="reference"/>
+
+    <attr name="buttonCornerRadius" format="reference"/>
+    <attr name="buttonInnerPadding" format="reference"/>
+
+    <attr name="listIconSize" format="reference"/>
+</resources>

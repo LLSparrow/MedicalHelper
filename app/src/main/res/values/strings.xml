@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">MedicalHelper</string>
-    <string name="bank_list_search_hint">Search</string>
+    <string name="cd_home">Home</string>
+    <string name="cd_list">List</string>
+    <string name="title_home">Home</string>
+    <string name="title_list">List</string>
 </resources>

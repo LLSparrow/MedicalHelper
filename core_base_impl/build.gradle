@@ -31,10 +31,11 @@ android {
 dependencies {
     implementation project(':core_base_api')
     implementation core.kotlin
+    implementation core.ktx
 
-    implementation ui.lifecycle
-    kapt ui.lifecycleCompiler
+    implementation koin.core
 
+    implementation navigation.values()
     // dagger
     implementation dagger.core
     kapt dagger.compiler

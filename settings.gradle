@@ -1,7 +1,15 @@
-include ':app', ':core_ui', ':main_menu', ':core_net_api', ':core_utils', ':core_net_impl', ':core_base_api',
+include ':app', ':feature_medicine_list_api',
+        ':core_ui',
+        ':core_utils',
+        ':core_net_api',
+        ':core_net_impl',
+        ':core_base_api',
+        ':core_base_impl',
+
+        ':feature_main_api',
+        ':feature_account_api',
+        ':feature_medicine_list_impl',
+        ':feature_main_impl',
         ':authlib_api',
         ':authlib_impl',
-        ':core_base_impl',
-        ':assistent',
-        ':medicinelist_api',
-        ':medicinelist_impl'
+        ':assistent'

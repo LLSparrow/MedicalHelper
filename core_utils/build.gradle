@@ -30,11 +30,15 @@ android {
         sourceCompatibility = versions.compatibility
         targetCompatibility = versions.compatibility
     }
-
 }
 
-
 dependencies {
-    implementation core.kotlin
-    implementation common.logger
+    api core.kotlin
+    api core.ktx
+
+    api coroutines.values()
+
+    api koin.values()
+    
+    api common.logger
 }

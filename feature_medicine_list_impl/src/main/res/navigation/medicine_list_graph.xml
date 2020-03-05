@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/medicine_list_graph"
+    app:startDestination="@id/medicineListFragment">
+
+    <fragment
+        android:id="@+id/medicineListFragment"
+        tools:layout="@layout/fragment_medicine_list"
+        android:name="com.luckylittlesparrow.healthassistant.feature_medicine_list.presentation.MedicineListFragment"
+        android:label="MedicineListFragment" />
+</navigation>

@@ -1,0 +1,34 @@
+/**
+ * Get release properties for signing application
+ * <p>
+ * File with properties must be put in rootProjectDir/key/signing.properties
+ * <p>
+ * Example config:
+ * <p>
+ * storeFile=/path/to/key
+ * <p>
+ * storePassword=storePassword
+ * <p>
+ * keyAlias=alias
+ * <p>
+ * keyPassword=keyPassword
+ */
+def getSigningProperties() {
+    def propertiesFile = file("${project.rootDir}${File.separator}key${File.separator}signing.properties")
+    def props = new Properties()
+    if (propertiesFile.exists()) {
+        props.load(new FileInputStream(propertiesFile))
+    } else {
+        //server env or stubs
+//        props["storeFile"] = System.env.CI_KEYSTORE_PATH ?: "release.key"
+//        props["storePassword"] = System.env.CI_KEYSTORE_PASS ?: "password"
+//        props["keyAlias"] = System.env.CI_KEYSTORE_KEY_ALIAS ?: "alias"
+//        props["keyPassword"] = System.env.CI_KEYSTORE_KEY_PASS ?: "keyPassword"
+        props["googleKey"] = System.env.GOOGLE_CLIENT_ID ?: "googleKey"
+    }
+    return props
+}
+
+ext {
+    getSigningProperties = this.&getSigningProperties
+}

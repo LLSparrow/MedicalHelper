@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "580509756342",
+    "firebase_url": "https://health-assistant-sparrow.firebaseio.com",
+    "project_id": "health-assistant-sparrow",
+    "storage_bucket": "health-assistant-sparrow.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:580509756342:android:a678f1f175b8651be8ef17",
+        "android_client_info": {
+          "package_name": "com.luckylittlesparrow.healthassistant.debug"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCneX5qOzjnW8WtrJiMFmQFsrs8HHo3k7w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

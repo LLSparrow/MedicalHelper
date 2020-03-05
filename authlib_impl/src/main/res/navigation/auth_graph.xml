@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/auth_navigation"
+    app:startDestination="@id/signInFragment"
+    tools:ignore="UnusedNavigation">
+
+<!--    <action-->
+<!--        android:id="@+id/start_login"-->
+<!--        app:destination="@id/signInFragment" />-->
+
+    <fragment
+        android:id="@+id/signInFragment"
+        tools:layout="@layout/fragment_login"
+        android:name="com.luckylittlesparrow.healthassistant.authlib.presentation.signin.SignInFragment"
+        android:label="SignInFragment">
+        <action
+
+            android:id="@+id/action_signInFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/signUpFragment"
+        tools:layout="@layout/fragment_create_account"
+        android:name="com.luckylittlesparrow.healthassistant.authlib.presentation.signup.SignUpFragment"
+        android:label="SignUpFragment" />
+</navigation>
+
+<!--    app:enterAnim="@anim/fragment_enter"-->
+<!--    app:exitAnim="@anim/fragment_exit"-->
+<!--    app:popEnterAnim="@anim/fragment_pop_enter"-->
+<!--    app:popExitAnim="@anim/fragment_pop_exit"-->

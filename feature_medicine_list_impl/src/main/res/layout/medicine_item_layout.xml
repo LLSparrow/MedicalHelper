@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.luckylittlesparrow.healthassistant.feature_medicine_list.model.presentation.Medicine" />
+
+        <variable
+            name="viewmodel"
+            type="com.luckylittlesparrow.healthassistant.feature_medicine_list.presentation.MedicineListViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_white_form"
+        android:layout_marginTop="@dimen/spacing_24"
+        android:onClick="@{() -> viewmodel.medicineItemClicked(item)}">
+
+        <ImageView
+            android:id="@+id/medicineListMedicineLogoImageView"
+            android:layout_width="?listIconSize"
+            android:layout_height="?listIconSize"
+            android:layout_marginTop="?marginPaddingContentBySide"
+            android:layout_marginBottom="?marginPaddingContentBySide"
+            android:src="@drawable/ic_email"
+            app:imageUrl="@{item.logoUri}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/bankListBankNameTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="?marginPaddingBySide"
+            android:text="@{item.name}"
+            android:textAppearance="@style/TextAppearance.HealthAssistant.Body"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/medicineListMedicineLogoImageView"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Med kit" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

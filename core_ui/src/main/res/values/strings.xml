@@ -5,4 +5,6 @@
     <string name="cancel">Cancel</string>
     <string name="no_internet_connection">No internet connection</string>
     <string name="session_not_available">Session is not available</string>
+    <string name="choose_mail">Choose mail app</string>
+    <string name="search_hint">Search</string>
 </resources>

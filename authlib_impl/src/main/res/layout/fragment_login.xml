@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/half_rounded_white_form">
+
+            <TextView
+                android:id="@+id/authLoginTitleTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="?marginPaddingTitle"
+                android:layout_marginTop="?marginPaddingTitle"
+                android:onClick="@{() -> viewModel.signInAnonymously()}"
+                android:text="@string/auth_welcome"
+                android:textAppearance="@style/TextAppearance.HealthAssistant.H1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/authLoginForgotPasswordTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="?marginPaddingContentBySide"
+                android:layout_marginTop="?marginPaddingBySide"
+                android:layout_marginEnd="?marginPaddingContentBySide"
+                android:gravity="center"
+                android:onClick="@{() -> viewModel.signInAnonymously()}"
+                android:text="@string/auth_forgot_password"
+                android:textAppearance="@style/TextAppearance.HealthAssistant.Body.Info"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/authLoginSignInButton" />
+
+            <TextView
+                android:id="@+id/authLoginTermsTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_24"
+                android:layout_marginTop="@dimen/spacing_24"
+                android:layout_marginEnd="@dimen/spacing_24"
+                android:layout_marginBottom="@dimen/spacing_24"
+                android:gravity="center"
+                android:onClick="@{() -> viewModel.signInAnonymously()}"
+                android:text="@string/auth_terms"
+                android:textAppearance="@style/TextAppearance.HealthAssistant.Body.Small.Info"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/authLoginSignUpButton" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/authLoginSignUpButton"
+                style="@style/Widget.HealthAssistant.Material.Button"
+                android:layout_marginTop="@dimen/spacing_56"
+                android:onClick="@{(v) -> viewModel.createAccount(v)}"
+                android:text="@string/auth_sign_up"
+                android:transitionName="createAccountButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/authLoginForgotPasswordTextView" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/authLoginSignInButton"
+                style="@style/Widget.HealthAssistant.Material.Button.Outlined"
+                android:onClick="@{() -> viewModel.signIn(authLoginEmailEditText.getEditText().getText().toString(), authLoginPasswordEditText.getEditText().getText().toString())}"
+                android:text="@string/auth_sign_in"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/authLoginPasswordEditText" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/authLoginEmailEditText"
+                style="@style/Widget.HealthAssistant.TextInputLayout"
+                android:hint="@string/auth_email_hint"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/authLoginTitleTextView">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_email"
+                    android:drawablePadding="@dimen/spacing_8"
+                    android:inputType="textEmailAddress" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/authLoginPasswordEditText"
+                style="@style/Widget.HealthAssistant.TextInputLayout"
+                android:hint="@string/auth_password_hint"
+                android:transitionName="passwordTextInputLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/authLoginEmailEditText">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_password"
+                    android:drawablePadding="@dimen/spacing_8"
+                    android:inputType="textPassword" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.luckylittlesparrow.healthassistant.authlib.presentation.signin.SignInViewModel" />
+
+    </data>
+</layout>
