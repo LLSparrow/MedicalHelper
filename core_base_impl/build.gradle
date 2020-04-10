@@ -26,10 +26,20 @@ android {
         targetCompatibility = versions.compatibility
     }
 
+    dataBinding {
+        enabled true
+    }
+
+    kotlinOptions {
+        jvmTarget = versions.compatibility
+    }
+
 }
 
 dependencies {
     implementation project(':core_base_api')
+    implementation project(':core_di')
+    implementation project(':core_feature_toggle_api')
     implementation core.kotlin
     implementation core.ktx
 
@@ -42,11 +52,12 @@ dependencies {
 
     implementation common.logger
 
+    implementation(core.lokalise) {
+        transitive = true
+    }
+
     // RxJava
     implementation rxjava.core
     implementation rxjava.android
     implementation rxjava.lifecycle
-
-    // Room
-    implementation room.core
 }

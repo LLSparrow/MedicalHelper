@@ -1,0 +1,45 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion versions.compileSdk
+
+    defaultConfig {
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+        versionCode versions.versionCode
+        versionName versions.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    compileOptions {
+        sourceCompatibility = versions.compatibility
+        targetCompatibility = versions.compatibility
+    }
+
+    kotlinOptions {
+        jvmTarget = versions.compatibility
+    }
+
+    androidExtensions {
+        experimental = true
+    }
+
+}
+
+dependencies {
+    implementation project(':core_utils')
+    implementation project(':core_base_impl')
+
+    implementation core.kotlin
+    implementation rest.gson
+
+    implementation ui.appcompat
+
+    implementation dagger.core
+
+    implementation firebase.auth
+}

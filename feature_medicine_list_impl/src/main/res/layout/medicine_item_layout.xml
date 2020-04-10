@@ -7,11 +7,11 @@
 
         <variable
             name="item"
-            type="com.luckylittlesparrow.healthassistant.feature_medicine_list.model.presentation.Medicine" />
+            type="com.llsparrow.healthassistant.feature_medicine_list.presentation.model.MedicineItem" />
 
         <variable
             name="viewmodel"
-            type="com.luckylittlesparrow.healthassistant.feature_medicine_list.presentation.MedicineListViewModel" />
+            type="com.llsparrow.healthassistant.feature_medicine_list.presentation.MedicineListViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

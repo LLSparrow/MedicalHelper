@@ -37,7 +37,9 @@ android {
 dependencies {
     implementation project(':core_utils')
     implementation project(':core_base_api')
-    implementation project(':core_net_api')
+    implementation project(':core_network_api')
+    implementation project(':core_di')
+    implementation project(':core_feature_toggle_api')
 
     api ui.appcompat
     api ui.constraintLayout
@@ -52,4 +54,7 @@ dependencies {
 
     implementation glide.core
     kapt glide.compiler
+
+    implementation dagger.core
+    kapt dagger.compiler
 }

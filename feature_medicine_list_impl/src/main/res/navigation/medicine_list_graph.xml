@@ -8,6 +8,6 @@
     <fragment
         android:id="@+id/medicineListFragment"
         tools:layout="@layout/fragment_medicine_list"
-        android:name="com.luckylittlesparrow.healthassistant.feature_medicine_list.presentation.MedicineListFragment"
+        android:name="com.llsparrow.healthassistant.feature_medicine_list.presentation.MedicineListFragment"
         android:label="MedicineListFragment" />
 </navigation>

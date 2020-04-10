@@ -13,6 +13,15 @@ android {
         versionName versions.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [
+                        "room.schemaLocation":"$projectDir/schemas".toString(),
+                        "room.incremental":"true",
+                        "room.expandProjection":"true"]
+            }
+        }
     }
 
     buildTypes {
@@ -45,8 +54,18 @@ dependencies {
     implementation project(':core_utils')
     implementation project(':core_base_api')
     implementation project(':core_ui')
+    implementation project(':core_di')
+    implementation project(':core_network_api')
 
     implementation project(':feature_medicine_list_api')
+
+    implementation room.core
+    implementation room.ktx
+
+    kapt room.compiler
+
+    implementation dagger.core
+    kapt dagger.compiler
 
    // debugImplementation core.leakcanary
 }

@@ -22,13 +22,21 @@ android {
         }
     }
 
-    androidExtensions {
-        experimental = true
-    }
-
     compileOptions {
         sourceCompatibility = versions.compatibility
         targetCompatibility = versions.compatibility
+    }
+
+    dataBinding {
+        enabled true
+    }
+
+    kotlinOptions {
+        jvmTarget = versions.compatibility
+    }
+
+    androidExtensions {
+        experimental = true
     }
 }
 
@@ -38,7 +46,12 @@ dependencies {
 
     api coroutines.values()
 
-    api koin.values()
+   // api koin.values()
     
     api common.logger
+
+    // Room
+    implementation room.core
+
+    implementation lifecycle.core
 }

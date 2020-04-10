@@ -12,23 +12,33 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/assistent" />
-            <option value="$PROJECT_DIR$/authlib_api" />
-            <option value="$PROJECT_DIR$/authlib_impl" />
             <option value="$PROJECT_DIR$/core_base_api" />
             <option value="$PROJECT_DIR$/core_base_impl" />
-            <option value="$PROJECT_DIR$/core_net_api" />
-            <option value="$PROJECT_DIR$/core_net_impl" />
+            <option value="$PROJECT_DIR$/core_di" />
+            <option value="$PROJECT_DIR$/core_feature_toggle_api" />
+            <option value="$PROJECT_DIR$/core_feature_toggle_impl" />
+            <option value="$PROJECT_DIR$/core_network_api" />
+            <option value="$PROJECT_DIR$/core_network_impl" />
             <option value="$PROJECT_DIR$/core_ui" />
             <option value="$PROJECT_DIR$/core_utils" />
             <option value="$PROJECT_DIR$/feature_account_api" />
+            <option value="$PROJECT_DIR$/feature_account_impl" />
+            <option value="$PROJECT_DIR$/feature_authentication_api" />
+            <option value="$PROJECT_DIR$/feature_authentication_impl" />
             <option value="$PROJECT_DIR$/feature_main_api" />
             <option value="$PROJECT_DIR$/feature_main_impl" />
             <option value="$PROJECT_DIR$/feature_medicine_list_api" />
             <option value="$PROJECT_DIR$/feature_medicine_list_impl" />
+            <option value="$PROJECT_DIR$/feature_personal_info_api" />
+            <option value="$PROJECT_DIR$/feature_personal_info_impl" />
+            <option value="$PROJECT_DIR$/feature_secure_storage_api" />
+            <option value="$PROJECT_DIR$/feature_secure_storage_impl" />
+            <option value="$PROJECT_DIR$/feature_water_api" />
+            <option value="$PROJECT_DIR$/feature_water_impl" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
+        <option name="useQualifiedModuleNames" value="true" />
       </GradleProjectSettings>
     </option>
   </component>

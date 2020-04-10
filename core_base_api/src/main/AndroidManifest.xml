@@ -1,1 +1,2 @@
-<manifest package="com.luckylittlesparrow.healthassistant.core_base_api" />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.llsparrow.healthassistant.core_base_api" />

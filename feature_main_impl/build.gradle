@@ -45,9 +45,13 @@ dependencies {
     implementation project(':core_utils')
     implementation project(':core_base_api')
     implementation project(':core_ui')
-    implementation project(':authlib_api')
+    implementation project(':core_di')
+    implementation project(':feature_authentication_api')
+    implementation project(':feature_main_api')
 
     //debugImplementation core.leakcanary
+    implementation dagger.core
+    kapt dagger.compiler
 
     testImplementation test.mockk
     testImplementation test.koin

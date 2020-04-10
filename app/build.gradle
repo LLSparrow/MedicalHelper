@@ -18,6 +18,8 @@ android {
         versionName versions.versionName
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "String", "API_VERSION", "\"1.0\""
     }
 
     signingConfigs {
@@ -65,9 +67,15 @@ android {
         exclude 'META-INF/*.kotlin_module'
     }
 
-    dataBinding {
-        enabled = true
+    compileOptions {
+        sourceCompatibility = versions.compatibility
+        targetCompatibility = versions.compatibility
     }
+
+    dataBinding {
+        enabled true
+    }
+
     kotlinOptions {
         jvmTarget = versions.compatibility
     }
@@ -80,8 +88,8 @@ android {
 dependencies {
     implementation core.multidex
 
-    implementation koin.core
-    implementation koin.ext
+//    implementation koin.core
+//    implementation koin.ext
 
     implementation lifecycle.core
 
@@ -90,16 +98,46 @@ dependencies {
 
     implementation project(':core_utils')
     implementation project(':core_ui')
+    implementation project(':core_di')
     implementation project(':core_base_api')
     implementation project(':core_base_impl')
+    implementation project(':core_network_api')
+    implementation project(':core_network_impl')
+    implementation project(':core_feature_toggle_api')
+    implementation project(':core_feature_toggle_impl')
+
     implementation project(':feature_main_api')
     implementation project(':feature_main_impl')
-    implementation project(':authlib_api')
-    implementation project(':authlib_impl')
+
+    implementation project(':feature_authentication_api')
+    implementation project(':feature_authentication_impl')
+
     implementation project(':feature_medicine_list_api')
     implementation project(':feature_medicine_list_impl')
 
+    implementation project(':feature_secure_storage_api')
+    implementation project(':feature_secure_storage_impl')
+
+    implementation project(':feature_personal_info_api')
+    implementation project(':feature_personal_info_impl')
+    
+    implementation project(':feature_account_api')
+    implementation project(':feature_account_impl')
+
+    implementation project(':feature_water_api')
+    implementation project(':feature_water_impl')
+
    // debugImplementation core.leakcanary
+
+    implementation rxjava.core
+
+    implementation dagger.core
+    kapt dagger.compiler
+
+    //firebase
+    //Warning: The app gradle file must have a dependency on com.google.firebase:firebase-core for Firebase services to work as intended.
+    implementation firebase.core
+    implementation firebase.config
 }
 
 apply plugin: 'com.google.gms.google-services'

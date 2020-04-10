@@ -11,6 +11,12 @@
                   <entry key="signInFragment">
                     <value>
                       <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="12" />
+                            <option name="y" value="12" />
+                          </Point>
+                        </option>
                         <option name="myPositions">
                           <map>
                             <entry key="action_signInFragment_to_signUpFragment">
@@ -25,7 +31,14 @@
                   </entry>
                   <entry key="signUpFragment">
                     <value>
-                      <LayoutPositions />
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="256" />
+                            <option name="y" value="12" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
                     </value>
                   </entry>
                 </map>
@@ -200,13 +213,13 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="main_navigation">
+                  <entry key="main_menu_graph">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-5" />
-                            <option name="y" value="160" />
+                            <option name="x" value="12" />
+                            <option name="y" value="12" />
                           </Point>
                         </option>
                       </LayoutPositions>

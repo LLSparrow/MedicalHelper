@@ -1,0 +1,59 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+apply from: '../scripts/release_signing.gradle'
+
+android {
+    compileSdkVersion versions.compileSdk
+
+    defaultConfig {
+        def props = getSigningProperties()
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+        versionCode versions.versionCode
+        versionName versions.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "String", "GOOGLE_CLIENT_ID", props["GOOGLE_CLIENT_ID"]
+    }
+
+    compileOptions {
+        sourceCompatibility = versions.compatibility
+        targetCompatibility = versions.compatibility
+    }
+
+    dataBinding {
+        enabled = true
+    }
+    kotlinOptions {
+        jvmTarget = versions.compatibility
+    }
+
+    androidExtensions {
+        experimental = true
+    }
+}
+
+
+dependencies {
+    implementation project(':feature_authentication_api')
+    implementation project(':core_base_impl')
+    implementation project(':core_base_api')
+    implementation project(':core_network_api')
+    implementation project(':core_ui')
+    implementation project(':core_di')
+    implementation project(':core_utils')
+    implementation project(':feature_account_api')
+    implementation project(':feature_personal_info_api')
+
+    implementation firebase.auth
+
+    implementation gms.auth
+
+    implementation dagger.core
+    kapt dagger.compiler
+
+   // debugImplementation core.leakcanary
+}

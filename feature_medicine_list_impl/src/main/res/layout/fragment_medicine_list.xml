@@ -7,7 +7,7 @@
 
         <variable
             name="adapter"
-            type="com.luckylittlesparrow.healthassistant.feature_medicine_list.presentation.MedicineListAdapter" />
+            type="com.llsparrow.healthassistant.feature_medicine_list.presentation.list.MedicineListAdapter" />
     </data>
 
     <androidx.constraintlayout.motion.widget.MotionLayout
