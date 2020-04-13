@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <TextView
+            android:id="@+id/personalInfoStartTitleTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="?marginPaddingTitle"
+            android:layout_marginTop="?marginPaddingTitle"
+            android:text="@string/personal_Info_greetings"
+            android:textAppearance="@style/TextAppearance.HealthAssistant.H1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/authLoginForgotPasswordTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="?marginPaddingContentBySide"
+            android:layout_marginTop="?marginPaddingBySide"
+            android:layout_marginEnd="?marginPaddingContentBySide"
+            android:gravity="center"
+            android:text="@string/personal_Info_greetings_description"
+            android:textAppearance="@style/TextAppearance.HealthAssistant.Body.Info"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/personalInfoStartTitleTextView" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/personalInfoStartButton"
+            style="@style/Widget.HealthAssistant.Material.Button"
+            android:layout_marginTop="@dimen/spacing_56"
+            android:layout_marginBottom="@dimen/spacing_16"
+            android:text="@string/personal_info_start_button"
+            android:textColor="@color/black"
+            android:transitionName="createAccountButton"
+            android:shadowDy="20"
+            android:shadowDx="20"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <data>
+
+
+    </data>
+</layout>

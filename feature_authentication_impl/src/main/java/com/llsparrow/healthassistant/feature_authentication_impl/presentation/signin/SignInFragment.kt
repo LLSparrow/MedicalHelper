@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import androidx.lifecycle.ViewModelProvider
@@ -15,7 +14,6 @@ import com.llsparrow.healthassistant.core_di.holder.FeatureUtils
 import com.llsparrow.healthassistant.core_ui.animation.slideUpFromBottom
 import com.llsparrow.healthassistant.core_ui.utils.executeAfter
 import com.llsparrow.healthassistant.core_ui.utils.toast
-import com.llsparrow.healthassistant.core_ui.view.AutoClearedValue
 import com.llsparrow.healthassistant.core_ui.view.BaseFragment
 import com.llsparrow.healthassistant.core_ui.view.safeActivity
 import com.llsparrow.healthassistant.core_ui.view.viewmodel.observe
@@ -26,11 +24,6 @@ import com.llsparrow.healthassistant.feature_authentication_impl.databinding.Fra
 import com.llsparrow.healthassistant.feature_authentication_impl.di.AuthenticationFeatureComponent
 import kotlinx.android.synthetic.main.fragment_login.*
 import javax.inject.Inject
-
-/**
- * @author Gusev Andrei
- * @since  1.0
- */
 
 private const val GOOGLE_SIGN_IN = 1
 
@@ -53,7 +46,6 @@ class SignInFragment : BaseFragment<FragmentLoginBinding>() {
 
         withViewModel<SignInViewModel>(viewModelFactory) {
             authViewModel = this
-            observeViewModel()
         }
 
         binding.executeAfter {
@@ -61,44 +53,18 @@ class SignInFragment : BaseFragment<FragmentLoginBinding>() {
             lifecycleOwner = viewLifecycleOwner
         }
 
-        authLoginSignUpButton.setOnClickListener {
-          //  authViewModel.createAccount(it, authLoginEmailEditText,)
+        authLoginGoogleImageView.setOnClickListener {
+            signInWithGoogle()
         }
     }
-
-//    override fun onActivityCreated(savedInstanceState: Bundle?) {
-//        super.onActivityCreated(savedInstanceState)
-//
-//        withViewModel<SignInViewModel>(viewModelFactory) {
-//            authViewModel = this
-//            observeViewModel()
-//        }
-//    }
 
     override fun onBackPressed(): Boolean {
         authViewModel.onBackPressed()
         return true
     }
 
-    private fun observeViewModel() {
-        authViewModel.loginResult().observe(this) {
-            toast(it.id)
-        }
-    }
-
-    private fun signInWithGoogle() {
-        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(BuildConfig.GOOGLE_CLIENT_ID)
-            .requestEmail()
-            .build()
-
-        val signInIntent = GoogleSignIn.getClient(safeActivity, gso).signInIntent
-        startActivityForResult(signInIntent, GOOGLE_SIGN_IN)
-    }
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == GOOGLE_SIGN_IN) {
                 authViewModel.signInWithGoogle(data)
@@ -114,5 +80,15 @@ class SignInFragment : BaseFragment<FragmentLoginBinding>() {
         val component =
             FeatureUtils.getFeature<AuthenticationFeatureComponent>(context, AuthenticationFeatureApi::class.java)
         component.inject(this)
+    }
+
+    private fun signInWithGoogle() {
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(BuildConfig.GOOGLE_CLIENT_ID)
+            .requestEmail()
+            .build()
+
+        val signInIntent = GoogleSignIn.getClient(safeActivity, gso).signInIntent
+        startActivityForResult(signInIntent, GOOGLE_SIGN_IN)
     }
 }

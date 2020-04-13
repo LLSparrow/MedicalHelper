@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+
+apply plugin: 'com.google.gms.google-services'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
@@ -11,7 +13,7 @@ android {
     compileSdkVersion versions.compileSdk
 
     defaultConfig {
-        applicationId "com.luckylittlesparrow.healthassistant"
+        applicationId "com.llsparrow.healthassistant"
         minSdkVersion versions.minSdk
         targetSdkVersion versions.targetSdk
         versionCode versions.versionCode
@@ -31,10 +33,10 @@ android {
             keyPassword props["keyPassword"]
         }
         debug {
-            storeFile file("../key/healthassistant_debug.keystore")
-            storePassword 'android'
-            keyAlias 'healthassistantdebugkey'
-            keyPassword 'android'
+            storeFile file("../key/debug_gusev_key")
+            storePassword '12345qwerty'
+            keyAlias 'debug_gusev_key'
+            keyPassword '12345qwerty'
         }
 
     }
@@ -96,6 +98,8 @@ dependencies {
     implementation firebase.auth
     implementation firebase.analytics
 
+    implementation gms.auth
+
     implementation project(':core_utils')
     implementation project(':core_ui')
     implementation project(':core_di')
@@ -105,6 +109,9 @@ dependencies {
     implementation project(':core_network_impl')
     implementation project(':core_feature_toggle_api')
     implementation project(':core_feature_toggle_impl')
+
+    implementation project(':common_navigation_api')
+    implementation project(':common_navigation_impl')
 
     implementation project(':feature_main_api')
     implementation project(':feature_main_impl')
@@ -124,9 +131,6 @@ dependencies {
     implementation project(':feature_account_api')
     implementation project(':feature_account_impl')
 
-    implementation project(':feature_water_api')
-    implementation project(':feature_water_impl')
-
    // debugImplementation core.leakcanary
 
     implementation rxjava.core
@@ -139,5 +143,3 @@ dependencies {
     implementation firebase.core
     implementation firebase.config
 }
-
-apply plugin: 'com.google.gms.google-services'

@@ -1,21 +1,20 @@
 package com.llsparrow.healthassistant.di
 
-import com.llsparrow.core_base_api.navigation.NavigationController
+import com.llsparrow.healthassistant.common_navigation.core.NavigationControllerImpl
 import com.llsparrow.healthassistant.CoreApplication
-import com.llsparrow.healthassistant.LauncherActivity
+import com.llsparrow.healthassistant.StartActivity
 import com.llsparrow.healthassistant.config.remote.FirebaseConfig
-import com.llsparrow.healthassistant.core_base_impl.navigation.NavigationControllerImpl
 import dagger.BindsInstance
 import dagger.Component
-import org.xml.sax.ErrorHandler
 import javax.inject.Singleton
 
 
 @Component(
-    modules = [AppModule::class,
-        // AppNavigationModule::class,
+    modules = [
+        AppModule::class,
         ComponentHolderModule::class,
-        ErrorHandlerModule::class]
+        ErrorHandlerModule::class
+    ]
 )
 @Singleton
 abstract class AppComponent {
@@ -27,7 +26,7 @@ abstract class AppComponent {
 
     abstract fun inject(application: CoreApplication)
 
-    abstract fun inject(activity: LauncherActivity)
+    abstract fun inject(activity: StartActivity)
 
     @Component.Builder
     interface Builder {

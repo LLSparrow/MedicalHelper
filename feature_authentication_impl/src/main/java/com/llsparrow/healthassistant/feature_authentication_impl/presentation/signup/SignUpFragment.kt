@@ -28,7 +28,7 @@ class SignUpFragment : BaseFragment<FragmentCreateAccountBinding>() {
     @Inject
     internal lateinit var viewModelFactory: ViewModelProvider.Factory
 
-    private lateinit var authViewModel: SignInViewModel
+    private lateinit var signUpViewModel: SignUpViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,18 +45,13 @@ class SignUpFragment : BaseFragment<FragmentCreateAccountBinding>() {
     }
 
     override fun onViewCreated(binding: FragmentCreateAccountBinding, savedInstanceState: Bundle?) {
-        binding.executeAfter {
-            viewModel = authViewModel
-            lifecycleOwner = viewLifecycleOwner
+        withViewModel<SignUpViewModel>(viewModelFactory) {
+            signUpViewModel = this
         }
-    }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
-        withViewModel<SignInViewModel>(viewModelFactory) {
-            authViewModel = this
-            observeViewModel()
+        binding.executeAfter {
+            viewModel = signUpViewModel
+            lifecycleOwner = viewLifecycleOwner
         }
     }
 
@@ -67,12 +62,6 @@ class SignUpFragment : BaseFragment<FragmentCreateAccountBinding>() {
 
     override fun onCreateAnimation(transit: Int, enter: Boolean, nextAnim: Int): Animation? {
         return slideUpFromBottom(enter)
-    }
-
-    private fun observeViewModel() {
-        authViewModel.loginResult().observe(this) {
-            toast(it.id)
-        }
     }
 
     override fun injectDependencies(context: Context) {

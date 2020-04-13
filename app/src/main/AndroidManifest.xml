@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.llsparrow.healthassistant">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name="com.llsparrow.healthassistant.CoreApplication"
         android:allowBackup="true"
@@ -14,7 +16,7 @@
         tools:ignore="GoogleAppIndexingWarning">
 
         <activity
-            android:name="com.llsparrow.healthassistant.LauncherActivity"
+            android:name="com.llsparrow.healthassistant.StartActivity"
             android:launchMode="singleTask"
             android:theme="@style/SplashTheme"
             android:windowSoftInputMode="adjustResize">

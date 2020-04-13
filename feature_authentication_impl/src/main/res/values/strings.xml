@@ -13,6 +13,6 @@
     <string name="auth_create_account">Create Account</string>
     <string name="auth_first_name_hint">First Name</string>
     <string name="auth_last_name_hint">Last Name</string>
-    <string name="auth_have_account_question">Sign in with social media</string>
+    <string name="auth_have_account_question">or sign in with</string>
     <string name="auth_terms">By creating an account, you are agreeing\n to our <u>Terms of Service</u></string>
 </resources>

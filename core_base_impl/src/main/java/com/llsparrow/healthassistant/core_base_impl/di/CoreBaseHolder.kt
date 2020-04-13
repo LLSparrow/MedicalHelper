@@ -1,7 +1,6 @@
 package com.llsparrow.healthassistant.core_base_impl.di
 
 import android.content.Context
-import com.llsparrow.core_base_api.navigation.NavigationController
 import com.llsparrow.healthassistant.core_base_impl.di.component.DaggerCoreBaseComponent
 import com.llsparrow.healthassistant.core_di.holder.FeatureApiHolder
 import com.llsparrow.healthassistant.core_di.holder.FeatureContainer
@@ -12,14 +11,12 @@ import javax.inject.Singleton
 @Singleton
 class CoreBaseHolder @Inject constructor(
     featureContainer: FeatureContainer,
-    private val applicationContext: Context,
-    private val navigationController: NavigationController
+    private val applicationContext: Context
 ) :
     FeatureApiHolder(featureContainer) {
     override fun initializeDependencies(): Any {
         return DaggerCoreBaseComponent.builder()
             .context(applicationContext)
-            .navigationController(navigationController)
             .coreFeatureToggleApi(getFeature(CoreFeatureToggleApi::class.java))
             .build()
     }

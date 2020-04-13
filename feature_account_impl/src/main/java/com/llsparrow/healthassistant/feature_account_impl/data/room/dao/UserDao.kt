@@ -1,8 +1,6 @@
 package com.llsparrow.healthassistant.feature_account_impl.data.room.dao
 
 import androidx.room.*
-import io.reactivex.Completable
-import io.reactivex.Maybe
 import com.llsparrow.healthassistant.feature_account_impl.data.room.model.UserEntity
 
 @Dao

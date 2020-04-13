@@ -10,30 +10,28 @@ import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.llsparrow.core_base_api.io.AppDispatchers
 import com.llsparrow.healthassistant.core_di.FeatureScope
-import com.llsparrow.healthassistant.feature_authentication_impl.data.mapper.FirebaseUserToAppUserMapper
+import com.llsparrow.healthassistant.feature_account_api.domain.model.User
+import com.llsparrow.healthassistant.feature_account_api.mapper.FirebaseUserToAppUserMapper
+import com.llsparrow.healthassistant.feature_authentication_impl.data.mapper.GoogleUserToAppUserMapper
 import com.llsparrow.healthassistant.feature_authentication_impl.data.service.AuthService
 import com.llsparrow.healthassistant.feature_authentication_impl.domain.AuthRepository
-import com.llsparrow.healthassistant.feature_account_api.domain.model.User
 import com.orhanobut.logger.Logger
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-/**
- * @author Gusev Andrei
- * @since  1.0
- */
 @FeatureScope
 internal class AuthRepositoryImpl @Inject constructor(
     private val authService: AuthService,
     private val dispatchers: AppDispatchers,
-    private val mapper: FirebaseUserToAppUserMapper
+    private val firebaseMapper: FirebaseUserToAppUserMapper,
+    private val googleMapper: GoogleUserToAppUserMapper
 ) : AuthRepository {
 
     override suspend fun signIn(username: String, password: String) = withContext(dispatchers.IO) {
         val result = authService.signIn(username, password).await()
         val user = result.user
-        return@withContext if (user == null) null else mapper.map(user)
+        return@withContext if (user == null) null else firebaseMapper.map(user)
     }
 
     override suspend fun signUp(username: String, email: String, password: String) = withContext(dispatchers.IO) {
@@ -42,12 +40,7 @@ internal class AuthRepositoryImpl @Inject constructor(
         val result: AuthResult = if (user != null) {
             user.linkWithCredential(EmailAuthProvider.getCredential(email, password)).await()
         } else authService.signUp(email, password).await()
-//
-//        authService.signUp(email, password).addOnCompleteListener {
-//            Logger.d(it)
-//            if (it.isSuccessful) user = it.result!!.user
-//        }
-//
+
 
         authService.currentUser()?.updateProfile(
             UserProfileChangeRequest
@@ -58,7 +51,7 @@ internal class AuthRepositoryImpl @Inject constructor(
 
         user = result.user
 
-        return@withContext if (user == null) null else mapper.map(user)
+        return@withContext if (user == null) null else firebaseMapper.map(user)
     }
 
     override suspend fun signInAnonymously() = withContext(dispatchers.IO) {
@@ -67,10 +60,10 @@ internal class AuthRepositoryImpl @Inject constructor(
         return@withContext (result != null)
     }
 
-    override suspend fun isAuthenticated() = withContext(dispatchers.IO) {
+    override suspend fun checkLogin() = withContext(dispatchers.IO) {
         val user = authService.currentUser()
         Logger.d(user)
-        return@withContext user != null
+        return@withContext if (user == null) null else firebaseMapper.map(user)
     }
 
     override suspend fun signOut() = withContext(dispatchers.IO) {
@@ -88,6 +81,6 @@ internal class AuthRepositoryImpl @Inject constructor(
         val credential = GoogleAuthProvider.getCredential(acct?.idToken, null)
         val result = authService.signInWithCredential(credential).await()
         val user = result.user
-        return if (user == null) null else mapper.map(user)
+        return if (user == null) null else googleMapper.map(acct!!)
     }
 }

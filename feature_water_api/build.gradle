@@ -22,5 +22,9 @@ android {
 }
 
 dependencies {
+    implementation project(':core_base_api')
+    implementation project(':core_ui')
+    implementation project(':feature_account_api')
     implementation core.kotlin
+    implementation ui.appcompat
 }

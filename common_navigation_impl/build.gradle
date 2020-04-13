@@ -1,0 +1,53 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion versions.compileSdk
+
+    defaultConfig {
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+        versionCode versions.versionCode
+        versionName versions.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = versions.compatibility
+        targetCompatibility = versions.compatibility
+    }
+
+    dataBinding {
+        enabled true
+    }
+
+    kotlinOptions {
+        jvmTarget = versions.compatibility
+    }
+
+}
+
+dependencies {
+    implementation project(':core_ui')
+    implementation project(':core_base_api')
+    implementation project(':core_di')
+    implementation project(':common_navigation_api')
+
+    implementation core.kotlin
+    implementation core.ktx
+
+    implementation navigation.values()
+    // dagger
+    implementation dagger.core
+    kapt dagger.compiler
+
+}

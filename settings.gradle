@@ -19,7 +19,9 @@ include ':app',
         ':feature_main_impl',
         ':feature_authentication_api',
         ':feature_authentication_impl',
-        ':feature_water_api',
-        ':feature_water_impl',
         ':feature_personal_info_api',
-        ':feature_personal_info_impl'
+        ':feature_personal_info_impl',
+        ':common_navigation_impl',
+        ':common_navigation_api'
+include ':feature_water_impl'
+include ':feature_water_api'

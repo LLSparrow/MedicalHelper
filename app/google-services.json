@@ -1,27 +1,45 @@
 {
   "project_info": {
-    "project_number": "580509756342",
-    "firebase_url": "https://health-assistant-sparrow.firebaseio.com",
-    "project_id": "health-assistant-sparrow",
-    "storage_bucket": "health-assistant-sparrow.appspot.com"
+    "project_number": "203676158107",
+    "firebase_url": "https://healthassistant-ll.firebaseio.com",
+    "project_id": "healthassistant-ll",
+    "storage_bucket": "healthassistant-ll.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:580509756342:android:a678f1f175b8651be8ef17",
+        "mobilesdk_app_id": "1:203676158107:android:23534eb4cbc0a77dabde3e",
         "android_client_info": {
-          "package_name": "com.luckylittlesparrow.healthassistant.debug"
+          "package_name": "com.llsparrow.healthassistant.debug"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "203676158107-j0ihofmfrb499m9lbs29c3avii8m89jf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.llsparrow.healthassistant.debug",
+            "certificate_hash": "fe05f60fe348ea434f01cd3055641d25e6bc372c"
+          }
+        },
+        {
+          "client_id": "203676158107-dudjraf99rhd27osgcuj4i5afa99fv9f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyCneX5qOzjnW8WtrJiMFmQFsrs8HHo3k7w"
+          "current_key": "AIzaSyAN74of5i1d-CPLdNnvgR4QF97mND1IyPk"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "203676158107-dudjraf99rhd27osgcuj4i5afa99fv9f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

@@ -46,6 +46,9 @@ dependencies {
     implementation project(':core_base_api')
     implementation project(':core_ui')
     implementation project(':core_di')
+
+    implementation project(':common_navigation_api')
+
     implementation project(':feature_authentication_api')
     implementation project(':feature_main_api')
 

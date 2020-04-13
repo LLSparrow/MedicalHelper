@@ -1,9 +1,9 @@
 package com.llsparrow.healthassistant.feature_main_impl.di
 
+import com.llsparrow.healthassistant.common_navigation_api.navigation.di.NavigationCommonApi
 import com.llsparrow.core_base_api.di.CoreBaseApi
 import com.llsparrow.feature_main_api.di.MainMenuFeatureApi
 import com.llsparrow.healthassistant.core_di.FeatureScope
-import com.llsparrow.healthassistant.feature_authentication_api.di.AuthenticationFeatureApi
 import com.llsparrow.healthassistant.feature_main_impl.MainMenuFragment
 import dagger.Component
 
@@ -22,9 +22,9 @@ abstract class MainMenuFeatureComponent : MainMenuFeatureApi {
     @Component(
         dependencies = [
             CoreBaseApi::class,
-            AuthenticationFeatureApi::class
+            NavigationCommonApi::class
         ]
     )
     @FeatureScope
-    internal interface AuthenticationFeatureDependenciesComponent : MainMenuFeatureDependencies
+    internal interface MainMenuFeatureDependenciesComponent : MainMenuFeatureDependencies
 }

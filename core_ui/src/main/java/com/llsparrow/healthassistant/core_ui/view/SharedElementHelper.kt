@@ -1,9 +1,6 @@
 package com.llsparrow.healthassistant.core_ui.view
 
-/**
- * @author Gusev Andrei
- * @since  1.0
- */
+
 import android.view.View
 import androidx.collection.ArrayMap
 

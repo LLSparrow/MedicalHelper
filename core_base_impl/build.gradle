@@ -43,8 +43,6 @@ dependencies {
     implementation core.kotlin
     implementation core.ktx
 
-    implementation koin.core
-
     implementation navigation.values()
     // dagger
     implementation dagger.core

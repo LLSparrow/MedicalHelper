@@ -9,7 +9,7 @@ import com.llsparrow.healthassistant.feature_account_api.domain.model.User
  */
 interface AuthRepository {
 
-    suspend fun isAuthenticated(): Boolean
+    suspend fun checkLogin(): User?
 
     suspend fun signInAnonymously(): Boolean
 

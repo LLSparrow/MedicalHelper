@@ -2,6 +2,8 @@ package com.llsparrow.healthassistant.di;
 
 import androidx.annotation.NonNull;
 
+import com.llsparrow.healthassistant.common_navigation.di.NavigationCommonHolder;
+import com.llsparrow.healthassistant.common_navigation_api.navigation.di.NavigationCommonApi;
 import com.llsparrow.core_base_api.di.CoreBaseApi;
 import com.llsparrow.core_net_impl.di.CoreNetworkHolder;
 import com.llsparrow.core_network_api.di.CoreNetworkApi;
@@ -13,6 +15,8 @@ import com.llsparrow.healthassistant.core_di.holder.FeatureContainer;
 import com.llsparrow.healthassistant.core_di.holder.FeatureHolderManager;
 import com.llsparrow.healthassistant.core_feature_toggle_api.di.CoreFeatureToggleApi;
 import com.llsparrow.healthassistant.core_feature_toggle_impl.di.CoreFeatureToggleHolder;
+import com.llsparrow.healthassistant.feature_account_api.di.AccountFeatureApi;
+import com.llsparrow.healthassistant.feature_account_impl.di.AccountFeatureHolder;
 import com.llsparrow.healthassistant.feature_authentication_api.di.AuthenticationFeatureApi;
 import com.llsparrow.healthassistant.feature_authentication_impl.di.AuthenticationFeatureHolder;
 import com.llsparrow.healthassistant.feature_main_impl.di.MainMenuFeatureHolder;
@@ -63,6 +67,13 @@ public abstract class ComponentHolderModule {
     abstract FeatureApiHolder provideCoreBase(@NonNull CoreBaseHolder coreBaseHolder);
 
     //endregion
+
+    @Singleton
+    @Binds
+    @ClassKey(NavigationCommonApi.class)
+    @IntoMap
+    abstract FeatureApiHolder provideCommonNavigation(@NonNull NavigationCommonHolder navigationCommonHolder);
+
     @Singleton
     @Binds
     @ClassKey(AuthenticationFeatureApi.class)
@@ -80,4 +91,10 @@ public abstract class ComponentHolderModule {
     @ClassKey(MainMenuFeatureApi.class)
     @IntoMap
     abstract FeatureApiHolder provideMainMenuFeatureHolder(@NonNull MainMenuFeatureHolder holder);
+
+    @Singleton
+    @Binds
+    @ClassKey(AccountFeatureApi.class)
+    @IntoMap
+    abstract FeatureApiHolder provideAccountFeatureHolder(@NonNull AccountFeatureHolder holder);
 }

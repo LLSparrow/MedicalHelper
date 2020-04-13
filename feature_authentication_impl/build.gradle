@@ -38,17 +38,21 @@ android {
 
 
 dependencies {
-    implementation project(':feature_authentication_api')
     implementation project(':core_base_impl')
     implementation project(':core_base_api')
     implementation project(':core_network_api')
     implementation project(':core_ui')
     implementation project(':core_di')
     implementation project(':core_utils')
+
+    implementation project(':common_navigation_api')
+
+    implementation project(':feature_authentication_api')
     implementation project(':feature_account_api')
     implementation project(':feature_personal_info_api')
 
     implementation firebase.auth
+    implementation firebase.analytics
 
     implementation gms.auth
 

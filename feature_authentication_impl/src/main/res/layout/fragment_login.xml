@@ -9,6 +9,7 @@
         android:fillViewport="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/main_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/half_rounded_white_form">
@@ -40,23 +41,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/authLoginSignInButton" />
 
-            <TextView
-                android:id="@+id/authLoginTermsTextView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spacing_24"
-                android:layout_marginTop="@dimen/spacing_24"
-                android:layout_marginEnd="@dimen/spacing_24"
-                android:layout_marginBottom="@dimen/spacing_24"
-                android:gravity="center"
-                android:onClick="@{() -> viewModel.signInAnonymously()}"
-                android:text="@string/auth_terms"
-                android:textAppearance="@style/TextAppearance.HealthAssistant.Body.Small.Info"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/authLoginSignUpButton" />
-
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/authLoginSignUpButton"
                 style="@style/Widget.HealthAssistant.Material.Button"
@@ -71,7 +55,7 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/authLoginSignInButton"
                 style="@style/Widget.HealthAssistant.Material.Button.Outlined"
-                android:onClick="@{() -> viewModel.signIn(authLoginEmailEditText.getEditText().getText().toString(), authLoginPasswordEditText.getEditText().getText().toString())}"
+                android:onClick="@{() -> viewModel.signIn()}"
                 android:text="@string/auth_sign_in"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -88,16 +72,15 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@={viewModel.email}"
-                    app:errorEnabled="true"
-                    app:hintEnabled="false"
-                    app:error="@{viewModel.emailError}"
-                    app:counterEnabled="true"
-                    app:counterMaxLength="20"
-                    android:lines="1"
                     android:drawableStart="@drawable/ic_email"
                     android:drawablePadding="@dimen/spacing_8"
-                    android:inputType="textEmailAddress" />
+                    android:inputType="textEmailAddress"
+                    android:lines="1"
+                    android:text="@={viewModel.email}"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="20"
+                    app:errorEnabled="true"
+                    app:hintEnabled="false" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -115,9 +98,69 @@
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/ic_password"
                     android:drawablePadding="@dimen/spacing_8"
-                    android:inputType="textPassword" />
+                    android:inputType="textPassword"
+                    android:lines="1"
+                    android:text="@={viewModel.password}"
+                    app:counterMaxLength="20" />
 
             </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/authLoginWithSocialTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_24"
+                android:layout_marginTop="@dimen/spacing_24"
+                android:layout_marginEnd="@dimen/spacing_24"
+                android:gravity="center"
+                android:onClick="@{() -> viewModel.signInAnonymously()}"
+                android:text="@string/auth_have_account_question"
+                android:textAppearance="@style/TextAppearance.HealthAssistant.Body.Small.Info"
+                app:layout_constraintBottom_toTopOf="@+id/authLoginFacebookImageView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/authLoginSignUpButton" />
+
+            <ImageView
+                android:id="@+id/authLoginGoogleImageView"
+                android:layout_width="?listIconSize"
+                android:layout_height="?listIconSize"
+                android:layout_marginEnd="@dimen/spacing_16"
+                android:layout_marginBottom="@dimen/spacing_24"
+                android:src="@drawable/ic_google_plus"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/authLoginFacebookImageView"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/authLoginFacebookImageView"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <ImageView
+                android:id="@+id/authLoginFacebookImageView"
+                android:layout_width="?listIconSize"
+                android:layout_height="?listIconSize"
+                android:layout_marginTop="@dimen/spacing_24"
+                android:layout_marginBottom="@dimen/spacing_24"
+                android:src="@drawable/ic_facebook"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/authLoginWithSocialTextView" />
+
+            <ImageView
+                android:id="@+id/authLoginTwitterImageView"
+                android:layout_width="?listIconSize"
+                android:layout_height="?listIconSize"
+                android:layout_marginStart="@dimen/spacing_16"
+                android:layout_marginBottom="@dimen/spacing_24"
+                android:src="@drawable/ic_twitter"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toEndOf="@+id/authLoginFacebookImageView"
+                app:layout_constraintTop_toTopOf="@+id/authLoginFacebookImageView" />
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

@@ -8,10 +8,7 @@ import com.google.firebase.auth.FirebaseUser
 import com.llsparrow.healthassistant.core_di.FeatureScope
 import javax.inject.Inject
 
-/**
- * @author Gusev Andrei
- * @since  1.0
- */
+
 @FeatureScope
 class AuthServiceImpl @Inject constructor(
     private val firebaseAuth: FirebaseAuth

@@ -19,7 +19,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/spacing_24"
                 android:layout_marginTop="@dimen/spacing_24"
-                android:onClick="@{() -> viewModel.signInAnonymously()}"
                 android:text="@string/auth_create_account"
                 android:textAppearance="@style/TextAppearance.HealthAssistant.H1"
                 app:layout_constraintStart_toStartOf="parent"
@@ -99,6 +98,7 @@
                 style="@style/Widget.HealthAssistant.Material.Button"
                 android:layout_marginTop="16dp"
                 android:text="@string/auth_sign_up"
+                android:onClick="@{() -> viewModel.createAccount()}"
                 android:transitionName="createAccountButton"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
@@ -122,7 +122,6 @@
 
         <variable
             name="viewModel"
-            type="com.llsparrow.healthassistant.feature_authentication_impl.presentation.signin.SignInViewModel" />
-
+            type="com.llsparrow.healthassistant.feature_authentication_impl.presentation.signup.SignUpViewModel" />
     </data>
 </layout>

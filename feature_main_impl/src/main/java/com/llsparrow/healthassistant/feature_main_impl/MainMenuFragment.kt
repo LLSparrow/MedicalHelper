@@ -4,13 +4,12 @@ import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import com.llsparrow.healthassistant.common_navigation_api.navigation.auth.AuthLauncher
 import com.llsparrow.feature_main_api.di.MainMenuFeatureApi
 import com.llsparrow.healthassistant.core_di.holder.FeatureUtils
 import com.llsparrow.healthassistant.core_ui.view.BaseFragment
 import com.llsparrow.healthassistant.core_ui.view.BottomBarCallback
 import com.llsparrow.healthassistant.core_ui.view.safeActivity
-import com.llsparrow.healthassistant.feature_authentication_api.di.AuthenticationFeatureApi
-import com.llsparrow.healthassistant.feature_authentication_api.navigation.AuthLauncher
 import com.llsparrow.healthassistant.feature_main_impl.di.MainMenuFeatureComponent
 import com.llsparrow.healthassistant.main_menu.R
 import com.llsparrow.healthassistant.main_menu.databinding.FragmentMainMenuBinding

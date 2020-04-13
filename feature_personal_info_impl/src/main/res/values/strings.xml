@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="personal_info_start_button">Let\'s start</string>
+    <string name="personal_Info_greetings">Hi there, I\'m Tali</string>
+    <string name="personal_Info_greetings_description">I\'m your new personal companion, before we start I want to know a few things about you</string>
+</resources>

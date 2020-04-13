@@ -1,16 +1,12 @@
 package com.llsparrow.healthassistant.feature_account_impl.domain
 
 import com.llsparrow.healthassistant.feature_account_api.domain.model.User
-import io.reactivex.Completable
-import io.reactivex.Maybe
 
 interface UserRepository {
 
-    fun getUser(fromCache: Boolean): Maybe<User>
+    suspend fun getUser(fromCache: Boolean): User?
 
-    fun saveUser(userModel: User): Completable
+    suspend fun updateUser(user: User)
 
-    fun updateUser(userModel: User): Completable
-
-    fun clear(): Completable
+    suspend fun clear()
 }

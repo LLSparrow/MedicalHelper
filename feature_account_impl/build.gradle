@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion versions.compileSdk
@@ -34,11 +35,17 @@ android {
         jvmTarget = versions.compatibility
     }
 
+    androidExtensions {
+        experimental = true
+    }
+
 }
 
 dependencies {
     implementation project(':core_di')
     implementation project(':core_utils')
+    implementation project(':core_network_api')
+    implementation project(':core_base_api')
     implementation project(':core_ui')
     implementation project(':feature_account_api')
     implementation project(':feature_secure_storage_api')
@@ -49,9 +56,9 @@ dependencies {
     kapt room.compiler
 
     implementation core.kotlin
-    // RxJava
-    implementation rxjava.core
-    implementation rxjava.android
+
+    implementation firebase.auth
+
     // dagger
     implementation dagger.core
     kapt dagger.compiler

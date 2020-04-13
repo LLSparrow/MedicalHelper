@@ -6,10 +6,6 @@ import com.llsparrow.healthassistant.feature_account_api.domain.model.User
 import com.llsparrow.healthassistant.feature_authentication_api.domain.AuthInteractor
 import javax.inject.Inject
 
-/**
- * @author Gusev Andrei
- * @since  1.0
- */
 @FeatureScope
 class AuthInteractorImpl @Inject constructor(private val authRepository: AuthRepository) :
     AuthInteractor {
@@ -27,12 +23,12 @@ class AuthInteractorImpl @Inject constructor(private val authRepository: AuthRep
         }
     }
 
-    override suspend fun isAuthenticated(onResult: (Boolean) -> Unit): Boolean {
-        authRepository.isAuthenticated().also {
-            onResult.invoke(it)
-            return it
-        }
-    }
+//    override suspend fun isAuthenticated(onResult: (Boolean) -> Unit): Boolean {
+//        authRepository.isAuthenticated().also {
+//            onResult.invoke(it)
+//            return it
+//        }
+//    }
 
     override suspend fun signInAnonymously(onResult: (Boolean) -> Unit): Boolean {
         authRepository.signInAnonymously().also {
@@ -53,5 +49,9 @@ class AuthInteractorImpl @Inject constructor(private val authRepository: AuthRep
             onResult.invoke(it)
             return it
         }
+    }
+
+    override suspend fun isAuthenticated(onResult: (Boolean) -> Unit): Boolean {
+        TODO("Not yet implemented")
     }
 }
