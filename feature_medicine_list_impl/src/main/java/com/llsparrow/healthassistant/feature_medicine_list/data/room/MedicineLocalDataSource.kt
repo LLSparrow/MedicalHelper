@@ -14,7 +14,7 @@ class MedicineLocalDataSource : MedicineDataSource {
         TODO("Not yet implemented")
     }
 
-    override fun updateMedicine(medicine: Medicine) {
+    override fun addOrUpdateMedicine(medicine: Medicine) {
         TODO("Not yet implemented")
     }
 

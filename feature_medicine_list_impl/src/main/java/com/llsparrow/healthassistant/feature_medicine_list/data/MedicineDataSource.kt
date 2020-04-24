@@ -8,7 +8,7 @@ interface MedicineDataSource {
 
     fun deleteMedicine(medicine: Medicine)
 
-    fun updateMedicine(medicine: Medicine)
+    fun addOrUpdateMedicine(medicine: Medicine)
 
     fun getMedicineList(): List<Medicine>
 }

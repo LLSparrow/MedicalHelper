@@ -53,5 +53,8 @@ dependencies {
     // Room
     implementation room.core
 
+    implementation rxjava.core
+    implementation rxjava.android
+
     implementation lifecycle.core
 }

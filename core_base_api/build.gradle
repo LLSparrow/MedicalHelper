@@ -27,4 +27,6 @@ dependencies {
     implementation ui.appcompat
     implementation navigation.values()
 
+    implementation room.core
+    implementation room.ktx
 }

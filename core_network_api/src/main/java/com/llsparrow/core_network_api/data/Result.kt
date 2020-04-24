@@ -1,11 +1,16 @@
 package com.llsparrow.core_network_api.data
 
-/**
- * @author Gusev Andrei
- * @since  1.0
- */
+sealed class Result<T> {
 
-sealed class Result<out A : Any, out B : Any> {
-    data class Success<A : Any>(val value: A) : Result<A, Nothing>()
-    data class Error<B : Any>(val error: B) : Result<Nothing, B>()
+    open fun get(): T? = null
+
+    fun getOrThrow(): T = when (this) {
+        is Success -> get()
+        is Error -> throw throwable
+    }
 }
+data class Success<T>(val data: T) : Result<T>() {
+    override fun get(): T = data
+}
+
+data class Error<T>(val throwable: Throwable) : Result<T>()

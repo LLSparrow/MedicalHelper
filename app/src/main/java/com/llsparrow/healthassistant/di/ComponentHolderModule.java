@@ -22,6 +22,8 @@ import com.llsparrow.healthassistant.feature_authentication_impl.di.Authenticati
 import com.llsparrow.healthassistant.feature_main_impl.di.MainMenuFeatureHolder;
 import com.llsparrow.healthassistant.feature_medicine_list.di.MedicineListFeatureHolder;
 import com.llsparrow.healthassistant.feature_medicine_list_api.di.MedicineListFeatureApi;
+import com.llsparrow.healthassistant.feature_secure_storage_api.di.SecureStorageFeatureApi;
+import com.llsparrow.healthassistant.feature_secure_storage_impl.di.SecureStorageFeatureHolder;
 
 import java.util.Map;
 
@@ -97,4 +99,10 @@ public abstract class ComponentHolderModule {
     @ClassKey(AccountFeatureApi.class)
     @IntoMap
     abstract FeatureApiHolder provideAccountFeatureHolder(@NonNull AccountFeatureHolder holder);
+
+    @Singleton
+    @Binds
+    @ClassKey(SecureStorageFeatureApi.class)
+    @IntoMap
+    abstract FeatureApiHolder provideSecureStorageFeatureHolder(@NonNull SecureStorageFeatureHolder holder);
 }

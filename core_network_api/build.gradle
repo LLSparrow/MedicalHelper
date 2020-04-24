@@ -42,4 +42,9 @@ dependencies {
     implementation dagger.core
 
     implementation firebase.auth
+
+    //REST
+    implementation rest.retrofit
+    implementation rest.retrofitConverter
+    implementation rest.retrofitAdapter
 }
