@@ -3,8 +3,9 @@ package com.llsparrow.healthassistant.feature_medicine_list.data.model
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import androidx.room.Relation
+import androidx.room.TypeConverters
 import com.llsparrow.core_base_api.data.BaseEntity
+import com.llsparrow.core_util.room.DateConverter
 import java.util.*
 
 @Entity(tableName = "medicine")
@@ -13,6 +14,7 @@ data class MedicineEntity(
     @ColumnInfo(name = "title") val title: String,
     @ColumnInfo(name = "description") val description: String? = null,
     @ColumnInfo(name = "amount") val amount: Int = 0,
-    @ColumnInfo(name = "expirationDate") val expirationDate: Date? = null,
-    @Relation(parentColumn = "id", entityColumn = "medicine_id") val image: MedicineImageEntity? = null
+
+    @param:TypeConverters(DateConverter::class)
+    @ColumnInfo(name = "expirationDate") var expirationDate: Date? = null
 ) : BaseEntity

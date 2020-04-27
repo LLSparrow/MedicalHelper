@@ -5,10 +5,6 @@ import com.google.firebase.auth.AuthCredential
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseUser
 
-/**
- * @author Gusev Andrei
- * @since  1.0
- */
 interface AuthService {
     fun signIn(): FirebaseUser?
 

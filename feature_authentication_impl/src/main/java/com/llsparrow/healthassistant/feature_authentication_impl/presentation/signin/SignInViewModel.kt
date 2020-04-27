@@ -39,7 +39,6 @@ class SignInViewModel @Inject constructor(
 //    }.debounce(duration = 200L, coroutineScope = this)
 
     fun signInAnonymously() {
-        showError(coroutineContext, Throwable("Sa"))
         launch {
             authInteractor.signInAnonymously()
         }

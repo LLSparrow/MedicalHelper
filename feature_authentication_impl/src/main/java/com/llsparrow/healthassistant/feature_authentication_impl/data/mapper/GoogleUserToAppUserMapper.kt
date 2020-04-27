@@ -10,7 +10,7 @@ import javax.inject.Inject
 @FeatureScope
 internal class GoogleUserToAppUserMapper @Inject constructor() : OneWayMapper<GoogleSignInAccount, User>() {
 
-    override fun map(item: GoogleSignInAccount): User {
+    override suspend fun map(item: GoogleSignInAccount): User {
         return User(
             id = item.id,
             firstName = item.givenName,

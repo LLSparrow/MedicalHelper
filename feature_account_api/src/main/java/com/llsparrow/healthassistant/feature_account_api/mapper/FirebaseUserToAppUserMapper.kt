@@ -10,7 +10,7 @@ import javax.inject.Inject
 @FeatureScope
 class FirebaseUserToAppUserMapper @Inject constructor() : OneWayMapper<FirebaseUser, User>() {
 
-    override fun map(item: FirebaseUser): User {
+    override suspend fun map(item: FirebaseUser): User {
         return User(
             id = item.uid,
             email = item.email,

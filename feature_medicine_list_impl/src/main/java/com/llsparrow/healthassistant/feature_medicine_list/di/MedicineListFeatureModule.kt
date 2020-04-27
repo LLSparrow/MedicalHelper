@@ -3,8 +3,15 @@ package com.llsparrow.healthassistant.feature_medicine_list.di
 import android.content.Context
 import androidx.room.Room
 import com.llsparrow.healthassistant.core_di.FeatureScope
+import com.llsparrow.healthassistant.core_di.source.Local
 import com.llsparrow.healthassistant.core_feature_toggle_api.config.AppConfig
+import com.llsparrow.healthassistant.feature_medicine_list.data.MedicineDataSource
+import com.llsparrow.healthassistant.feature_medicine_list.data.MedicineRepositoryImpl
+import com.llsparrow.healthassistant.feature_medicine_list.data.room.MedicineLocalDataSource
+import com.llsparrow.healthassistant.feature_medicine_list.data.room.dao.MedicineDao
 import com.llsparrow.healthassistant.feature_medicine_list.data.room.db.MedicineDatabase
+import com.llsparrow.healthassistant.feature_medicine_list.domain.MedicineRepository
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
 
@@ -29,6 +36,15 @@ internal abstract class MedicineListFeatureModule {
         @JvmStatic
         @FeatureScope
         @Provides
-        fun provideMedicineDao(db: MedicineDatabase) = db.medicineDao()
+        fun provideMedicineDao(db: MedicineDatabase): MedicineDao = db.medicineDao()
     }
+
+    @Binds
+    @Local
+    @FeatureScope
+    abstract fun provideMedicineLocalDataSource(dataSource: MedicineLocalDataSource): MedicineDataSource
+
+    @Binds
+    @FeatureScope
+    abstract fun provideMedicineRepository(repository: MedicineRepositoryImpl): MedicineRepository
 }

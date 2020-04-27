@@ -1,9 +1,8 @@
-package com.llsparrow.healthassistant.feature_medicine_list.data
+package com.llsparrow.healthassistant.feature_medicine_list.domain
 
 import com.llsparrow.healthassistant.feature_medicine_list.domain.model.Medicine
-import kotlinx.coroutines.flow.Flow
 
-interface MedicineDataSource {
+interface MedicineRepository{
     suspend fun getMedicineByTitle(title: String): Medicine?
 
     suspend fun deleteMedicine(medicine: Medicine)

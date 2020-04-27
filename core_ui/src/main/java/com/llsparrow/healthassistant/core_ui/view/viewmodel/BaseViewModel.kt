@@ -11,7 +11,7 @@ import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 import kotlin.system.measureTimeMillis
 
-abstract class BaseViewModel  : ViewModel(), CoroutineScope {
+abstract class BaseViewModel : ViewModel(), CoroutineScope {
 
     private val _error = MutableLiveData<Alert>()
 
@@ -30,8 +30,10 @@ abstract class BaseViewModel  : ViewModel(), CoroutineScope {
     }
 
     fun showError(context: CoroutineContext, throwable: Throwable) {
-        val alert = errorConverter.map(throwable)
-        _error.postValue(alert)
-        throwable.localizedMessage?.let { Logger.e(throwable, it) }
+        launch {
+            val alert = errorConverter.map(throwable)
+            _error.postValue(alert)
+            throwable.localizedMessage?.let { Logger.e(throwable, it) }
+        }
     }
 }

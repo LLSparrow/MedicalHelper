@@ -5,10 +5,6 @@ import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
 import com.llsparrow.healthassistant.core_ui.R
 
-/**
- * @author Gusev Andrei
- * @since  1.0
- */
 fun Fragment.slideInFromRight(enter: Boolean): Animation? {
     return if (enter) {
         AnimationUtils.loadAnimation(activity, R.anim.slide_in_right)

@@ -1,10 +1,5 @@
 package com.llsparrow.core_util
 
-/**
- * @author Gusev Andrei
- * @since  1.0
- */
-
 import android.net.Uri
 import android.util.Base64
 

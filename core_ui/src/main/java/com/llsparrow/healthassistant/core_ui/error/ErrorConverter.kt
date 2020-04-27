@@ -16,7 +16,7 @@ class ErrorConverter constructor() :
         private const val UNEXPECTED_ERROR = "Unexpected error"
     }
 
-    override fun map(item: Throwable): Alert {
+    override suspend fun map(item: Throwable): Alert {
 //        return when {
 //            item is ServerException -> item.alert ?: Alert(
 //                description = item.message
